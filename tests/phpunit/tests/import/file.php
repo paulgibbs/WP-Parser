@@ -69,8 +69,10 @@ class File_Import_Test extends Import_UnitTestCase {
 			, $this->importer->taxonomy_since_version
 		);
 
-		$this->assertCount( 1, $terms );
+		$this->assertCount( 3, $terms );
 		$this->assertEquals( '1.4.0', $terms[0]->name );
+		$this->assertEquals( '1.5.0', $terms[1]->name );
+		$this->assertEquals( 'BuddyPress (2.3.2.1)', $terms[2]->name );
 
 		// It should be assigned the correct @package taxonomy term.
 		$terms = wp_get_object_terms(
@@ -99,12 +101,12 @@ class File_Import_Test extends Import_UnitTestCase {
 		);
 
 		$this->assertEquals(
-			25
+			27
 			, get_post_meta( $post->ID, '_wp-parser_line_num', true )
 		);
 
 		$this->assertEquals(
-			28
+			30
 			, get_post_meta( $post->ID, '_wp-parser_end_line_num', true )
 		);
 
@@ -113,6 +115,16 @@ class File_Import_Test extends Import_UnitTestCase {
 				array(
 					'name' => 'since',
 					'content' => '1.4.0',
+				),
+				array(
+					'name' => 'since',
+					'content' => '1.5.0',
+					'description' => 'Some change.',
+				),
+				array(
+					'name' => 'since',
+					'content' => 'BuddyPress (2.3.2.1)',
+					'description' => 'Another change.',
 				),
 				array(
 					'name' => 'param',

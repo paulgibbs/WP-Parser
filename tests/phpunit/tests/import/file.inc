@@ -16,6 +16,8 @@
  * This function is just here for tests. This is its longer description.
  *
  * @since 1.4.0
+ * @since 1.5.0 Some change.
+ * @since BuddyPress (2.3.2.1) Another change.
  *
  * @param string $var A string variable which is the first parameter.
  * @param int[]  $ids An array of user IDs.
